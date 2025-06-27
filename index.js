@@ -39,7 +39,7 @@ app.get("/chats/new",(req,res)=>{
 // Create route
 
 app.post("/chats",(req,res)=>{
-    let {from, to, msg} = req.body; // for this we using parsing
+    let {from, to, msg} = req.body; 
     let newChat =new Chat({
         from: from,
         to: to,
@@ -47,7 +47,7 @@ app.post("/chats",(req,res)=>{
         created_at: new Date(),
     });
     // console.log(newChat);
-    newChat.save() // save in db.
+    newChat.save() 
     .then((res)=>{
         console.log("chat was saved !");
     })
@@ -63,8 +63,8 @@ app.post("/chats",(req,res)=>{
 
 app.get("/chats/:id/edit",async (req,res)=>{
    
-    let {id} = req.params; // to get the id
-   let chat = await Chat.findById(id); // search in database
+    let {id} = req.params; 
+   let chat = await Chat.findById(id); 
    res.render("edit.ejs",{ chat });
 })
 
